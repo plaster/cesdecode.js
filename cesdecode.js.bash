@@ -1,8 +1,11 @@
 # vi: set ft=javascript :
 
 cat <<EOF
-var cesdecode = {};
 (function () {
+if (! window.cesdecode) {
+	window.cesdecode = {};
+}
+var _cesdecode = window.cesdecode;
 var decoderfromtrie = function(trie) {
 	return function(bytes) {
 		var s = '';
@@ -25,14 +28,21 @@ var decoderfromtrie = function(trie) {
 		return s;
 	};
 };
-
-var decodecp932 = decoderfromtrie( $(cat cp932.json) );
-var decodesjis2004 = decoderfromtrie( $(cat sjis2004.json ) );
-var decodeeucjis2004 = decoderfromtrie( $(cat eucjis2004.json ) );
-
 cesdecode.decoderfromtrie = decoderfromtrie;
-cesdecode.decodecp932 = decodecp932;
-cesdecode.decodesjis2004 = decodesjis2004;
-cesdecode.decodeeucjis2004 = decodeeucjis2004;
 })();
 EOF
+
+#/*
+for cesname in "$@"
+do
+#*/
+cat <<EOF
+(function () {
+var _cesdecode = window.cesdecode;
+var decoder = _cesdecode.decoderfromtrie($(cat ${cesname}.json));
+cesdecode.decode$cesname = decoder;
+})();
+EOF
+#/*
+done
+#*/

@@ -1,5 +1,5 @@
 cesdecode.js: cesdecode.js.bash cp932.json sjis2004.json eucjis2004.json
-	bash cesdecode.js.bash > $@
+	bash cesdecode.js.bash cp932 sjis2004 eucjis2004 > $@
 .PHONY: clean
 clean:
 	rm -f cesdecode.js cp932.json sjis2004.json eucjis2004.json
