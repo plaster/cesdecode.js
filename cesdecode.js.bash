@@ -28,9 +28,11 @@ var decoderfromtrie = function(trie) {
 
 var decodecp932 = decoderfromtrie( $(cat cp932.json) );
 var decodesjis2004 = decoderfromtrie( $(cat sjis2004.json ) );
+var decodeeucjis2004 = decoderfromtrie( $(cat eucjis2004.json ) );
 
 cesdecode.decoderfromtrie = decoderfromtrie;
 cesdecode.decodecp932 = decodecp932;
 cesdecode.decodesjis2004 = decodesjis2004;
+cesdecode.decodeeucjis2004 = decodeeucjis2004;
 })();
 EOF
