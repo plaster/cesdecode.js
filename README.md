@@ -22,3 +22,31 @@ make で成果物 cesdecode.js が生成されます。
     discarding 8E => 008E
     discarding 8F => 008F
     bash cesdecode.js.bash > cesdecode.js
+
+## 使用例
+
+    <!DOCTYPE HTML>
+    <html lang=ja>
+        <head>
+            <script src="cesdecode.js"></script> <!-- HTTPアクセス可能なところに置いてください -->
+        </head>
+        <body>
+            <script>
+                var req_uri = 'http://...'; // Shift_JIS的なファイル
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function () {
+                    if (
+                        req.readyState == 4 &&
+                        req.status == 200
+                    ) {
+                        var response_data = new Uint8Array(req.response);
+                        var text = cesdecode.decodecp932(response_data);
+                        // text は変換済みの文字列なのであとは煮るなり焼くなり
+                    }
+                };
+                req.open('GET', req_url);
+                req.responseType = 'arraybuffer';
+                req.send();
+            </script>
+        </body>
+    </html>
