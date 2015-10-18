@@ -7,11 +7,11 @@ clean-all: clean
 	rm -f CP932.TXT sjis-0213-2004-std.txt euc-jis-2004-std.txt
 
 CP932.TXT:
-	wget -O $@ http://ftp.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
+	wget -q -O $@ http://ftp.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
 sjis-0213-2004-std.txt:
-	wget -O $@ http://x0213.org/codetable/sjis-0213-2004-std.txt
+	wget -q -O $@ http://x0213.org/codetable/sjis-0213-2004-std.txt
 euc-jis-2004-std.txt:
-	wget -O $@ http://x0213.org/codetable/euc-jis-2004-std.txt
+	wget -q -O $@ http://x0213.org/codetable/euc-jis-2004-std.txt
 cp932.json: CP932.TXT
 	perl triejsonfromcodetable.pl < $< > $@
 sjis2004.json: sjis-0213-2004-std.txt
