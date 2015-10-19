@@ -40,7 +40,7 @@ make で成果物 cesdecode.js が生成されます。
                         req.status == 200
                     ) {
                         var response_data = new Uint8Array(req.response);
-                        var text = cesdecode.decodecp932(response_data);
+                        var text = cesdecode.fromcp932(response_data);
                         // text は変換済みの文字列なのであとは煮るなり焼くなり
                     }
                 };

@@ -1,8 +1,11 @@
+all: cesdecode.js cesdecodecp932.js
 cesdecode.js: cesdecode.js.bash cp932.json sjis2004.json eucjis2004.json
 	bash cesdecode.js.bash cp932 sjis2004 eucjis2004 > $@
+cesdecodecp932.js: cesdecode.js.bash cp932.json
+	bash cesdecode.js.bash cp932 > $@
 .PHONY: clean
 clean:
-	rm -f cesdecode.js cp932.json sjis2004.json eucjis2004.json
+	rm -f cesdecode.js cesdecodecp932.js cp932.json sjis2004.json eucjis2004.json
 clean-all: clean
 	rm -f CP932.TXT sjis-0213-2004-std.txt euc-jis-2004-std.txt
 

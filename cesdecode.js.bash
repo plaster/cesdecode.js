@@ -40,7 +40,7 @@ cat <<EOF
 (function () {
 var _cesdecode = window.cesdecode;
 var decoder = _cesdecode.decoderfromtrie($(cat ${cesname}.json));
-cesdecode.decode$cesname = decoder;
+cesdecode.from$cesname = decoder;
 })();
 EOF
 #/*
