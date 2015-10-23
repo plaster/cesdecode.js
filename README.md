@@ -13,15 +13,16 @@ make で成果物 cesdecode.js が生成されます。
 ### ビルド実行例
 
     % make
-    wget -q -O CP932.TXT http://ftp.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
-    perl triejsonfromcodetable.pl < CP932.TXT > cp932.json
-    wget -q -O sjis-0213-2004-std.txt http://x0213.org/codetable/sjis-0213-2004-std.txt
-    perl triejsonfromcodetable.pl < sjis-0213-2004-std.txt > sjis2004.json
-    wget -q -O euc-jis-2004-std.txt http://x0213.org/codetable/euc-jis-2004-std.txt
-    perl triejsonfromcodetable.pl < euc-jis-2004-std.txt > eucjis2004.json
+    wget -q -O med/CP932.TXT http://ftp.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
+    perl triejsonfromcodetable.pl < med/CP932.TXT > dist/cp932.json
+    wget -q -O med/sjis-0213-2004-std.txt http://x0213.org/codetable/sjis-0213-2004-std.txt
+    perl triejsonfromcodetable.pl < med/sjis-0213-2004-std.txt > dist/sjis2004.json
+    wget -q -O med/euc-jis-2004-std.txt http://x0213.org/codetable/euc-jis-2004-std.txt
+    perl triejsonfromcodetable.pl < med/euc-jis-2004-std.txt > dist/eucjis2004.json
     discarding 8E => 008E
     discarding 8F => 008F
-    bash cesdecode.js.bash > cesdecode.js
+    bash cesdecode.js.bash cp932 sjis2004 eucjis2004 > dist/cesdecode.js
+    bash cesdecode.js.bash cp932 > dist/cesdecodecp932.js
 
 ## 使用例
 
