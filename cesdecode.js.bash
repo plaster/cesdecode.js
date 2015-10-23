@@ -39,7 +39,7 @@ do
 cat <<EOF
 (function () {
 var _cesdecode = window.cesdecode;
-var decoder = _cesdecode.decoderfromtrie($(cat med/${cesname}.json));
+var decoder = _cesdecode.decoderfromtrie($(cat dist/${cesname}.json));
 cesdecode.from$cesname = decoder;
 })();
 EOF
