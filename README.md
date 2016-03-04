@@ -3,26 +3,26 @@
 誰かがどこかでぜったい作ってるに決まってる文字コード変換関数です。
 Shift_JIS 的なファイルをXHRでとってきて表示とかしたいときにすぐ使えるといいな。
 
-作者はイマドキのJSしらないのでモジュール化の作法とかもぜんぜんわかってません。ツッコミくれるとうれしいな！
-
 ## ビルド
 
-makeとwgetとperlとbashが必要です。
+makeとwgetとperlとcppが必要です。
 make で成果物 cesdecode.js が生成されます。
 
 ### ビルド実行例
 
     % make
     wget -q -O med/CP932.TXT http://ftp.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT
-    perl triejsonfromcodetable.pl < med/CP932.TXT > dist/cp932.json
+    perl src/triejsonfromcodetable.pl < med/CP932.TXT > med/cp932.json
     wget -q -O med/sjis-0213-2004-std.txt http://x0213.org/codetable/sjis-0213-2004-std.txt
-    perl triejsonfromcodetable.pl < med/sjis-0213-2004-std.txt > dist/sjis2004.json
+    perl src/triejsonfromcodetable.pl < med/sjis-0213-2004-std.txt > med/sjis2004.json
     wget -q -O med/euc-jis-2004-std.txt http://x0213.org/codetable/euc-jis-2004-std.txt
-    perl triejsonfromcodetable.pl < med/euc-jis-2004-std.txt > dist/eucjis2004.json
+    perl src/triejsonfromcodetable.pl < med/euc-jis-2004-std.txt > med/eucjis2004.json
     discarding 8E => 008E
     discarding 8F => 008F
-    bash cesdecode.js.bash cp932 sjis2004 eucjis2004 > dist/cesdecode.js
-    bash cesdecode.js.bash cp932 > dist/cesdecodecp932.js
+    /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med -I./src < src/cesdecode-impl.js > med/cesdecode-impl.js
+    /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med < src/cesdecode.js > dist/cesdecode.js
+    /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med -I./src < src/cesdecodecp932-impl.js > med/cesdecodecp932-impl.js
+    /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med < src/cesdecodecp932.js > dist/cesdecodecp932.js
 
 ## 使用例
 
