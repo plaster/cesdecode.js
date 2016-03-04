@@ -1,6 +1,6 @@
 function () {
 var cesdecode = {};
-var decoderfromtrie =
+cesdecode.decoderfromtrie =
 #include "decoder-from-trie.js"
 ;
 cesdecode.fromcp932 = cesdecode.decoderfromtrie(
