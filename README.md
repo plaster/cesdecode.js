@@ -4,9 +4,9 @@
 
 Javascriptで Shift_JIS(CP932, Shift-JIS-2004) および EUC-JP(EUC-JIS-2004) をデコードします。
 
-※ 将来ブラウザが直接サポートする流れのようです。
+※ デコードはブラウザが直接サポートする流れのようです。
 * [TextDecoder - MDN](https://developer.mozilla.org/ja/docs/Web/API/TextDecoder)
-* [7.1. Interface TextDecoder - WHATWG](https://encoding.spec.whatwg.org/#interface-textdecoder)。
+* [TextDecoder - Encoding - Living Standard - WHATWG](https://encoding.spec.whatwg.org/#interface-textdecoder)
 
 ### モチベーション
 
@@ -73,3 +73,7 @@ make で成果物 cesdecode.js が生成されます。
     /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med -I./src < src/cesdecodecp932-impl.js > med/cesdecodecp932-impl.js
     /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med < src/cesdecodecp932.js > dist/cesdecodecp932.js
 
+## ライセンス
+
+ソースコードを [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) のもと公開します。
+成果物の利用の際は http://www.unicode.org/copyright.html に従ってください。
