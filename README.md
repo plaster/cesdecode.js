@@ -1,8 +1,10 @@
 # cesdecode.js
 
-## これなに
+## できること
 
-文字コード変換関数を提供します。デコードのみをサポートしています。
+Javascriptで Shift_JIS(CP932, Shift-JIS-2004) および EUC-JP(EUC-JIS-2004) をデコードします。
+
+※ 将来的にはブラウザが直接サポートすると、このライブラリは互換性だけのためのものになります: https://developer.mozilla.org/ja/docs/Web/API/TextDecoder
 
 ### モチベーション
 
@@ -11,8 +13,14 @@
 
 ### 制約
 
-* ランタイム・ビルドとも依存関係が大きくならないようにしたい
 * 大きな入力に対して極端な性能劣化がないようにしたい
+* ランタイム・ビルドとも、ツールやライブラリの依存関係が大きくならないようにしたい
+
+## ダウンロード
+
+* https://github.com/plaster/js-cesdecode/releases から cesdecode.js または cesdecodecp932.js をダウンロードしてください。
+* * 前者 cesdecode.js は CP932, Shift-JIS-2004, EUC-JIS-2004 のデコード関数を含みます。
+* * 後者 cesdecodecp932.js は CP932 のデコード関数のみを含みます。CP932しか扱わないならこちらのほうが軽量です。
 
 ## ビルド
 
