@@ -10,11 +10,11 @@ dist/cesdecodecp932.js: src/cesdecodecp932.js med/cesdecodecp932-impl.js
 	@mkdir -p dist
 	$(CPP) -I./med < $< > $@
 
-med/cesdecode-impl.js: src/cesdecode-impl.js med/cp932.json med/sjis2004.json med/eucjis2004.json
+med/cesdecode-impl.js: src/cesdecode-impl.js med/cp932.json med/sjis2004.json med/eucjis2004.json src/copyright-and-permission-unicode
 	@mkdir -p dist
 	$(CPP) -I./med -I./src < $< > $@
 
-med/cesdecodecp932-impl.js: src/cesdecodecp932-impl.js med/cp932.json
+med/cesdecodecp932-impl.js: src/cesdecodecp932-impl.js med/cp932.json src/copyright-and-permission-unicode
 	@mkdir -p dist
 	$(CPP) -I./med -I./src < $< > $@
 
