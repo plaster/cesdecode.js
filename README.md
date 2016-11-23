@@ -1,14 +1,8 @@
 # cesdecode.js
 
-## できること
-
 Javascriptで Shift_JIS(CP932, Shift-JIS-2004) および EUC-JP(EUC-JIS-2004) をデコードします。
 
-※ デコードはブラウザが直接サポートする流れのようです。
-* [TextDecoder - MDN](https://developer.mozilla.org/ja/docs/Web/API/TextDecoder)
-* [TextDecoder - Encoding - Living Standard - WHATWG](https://encoding.spec.whatwg.org/#interface-textdecoder)
-
-### モチベーション
+## モチベーション
 
 * Shift_JIS 的なファイルをXHRとかでとってきて表示するようなプログラムを簡単に書けるようにしておきたい
 * 文字コード変換するプログラムを一度は自力で書いておきたい
@@ -24,7 +18,15 @@ Javascriptで Shift_JIS(CP932, Shift-JIS-2004) および EUC-JP(EUC-JIS-2004) �
   * 前者 cesdecode.js は CP932, Shift-JIS-2004, EUC-JIS-2004 のデコード関数を含みます。
   * 後者 cesdecodecp932.js は CP932 のデコード関数のみを含みます。CP932しか扱わないならこちらのほうが軽量です。
 
-## 使用例
+## 使用
+
+    var text = cesdecode.fromcp932(binary);
+    var text = cesdecode.fromsjis2004(binary);
+    var text = cesdecode.fromeucjis2004(binary);
+
+いずれも引数は Uint8Array で、戻り値は文字列です。
+
+### 使用例
 
     <!DOCTYPE HTML>
     <html lang=ja>
@@ -72,6 +74,14 @@ make で成果物 cesdecode.js が生成されます。
     /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med < src/cesdecode.js > dist/cesdecode.js
     /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med -I./src < src/cesdecodecp932-impl.js > med/cesdecodecp932-impl.js
     /usr/bin/cpp -P -undef -Wundef -std=c99 -nostdinc -Wtrigraphs -fdollars-in-identifiers -C -I./med < src/cesdecodecp932.js > dist/cesdecodecp932.js
+
+
+## 関連
+
+デコードはブラウザが直接サポートする流れのようです。
+* [TextDecoder - MDN](https://developer.mozilla.org/ja/docs/Web/API/TextDecoder)
+* [TextDecoder - Encoding - Living Standard - WHATWG](https://encoding.spec.whatwg.org/#interface-textdecoder)
+
 
 ## ライセンス
 
