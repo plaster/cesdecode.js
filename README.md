@@ -86,4 +86,4 @@ make で成果物 cesdecode.js が生成されます。
 ## ライセンス
 
 * ソースコードを [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) のもと公開します。
-* 成果物の利用の際は http://www.unicode.org/copyright.html に従ってください。
+* 成果物の利用の際は http://www.unicode.org/copyright.html#License に従ってください。
